@@ -165,6 +165,12 @@ def handle_result(args: List[str],
             return
 
         kitty_args = (
+            '--logo',
+            'pager.png',
+            '--logo-position',
+            'center',
+            '--logo-alpha',
+            '0.1',
             '--copy-env',
             '--type',
             'overlay',

@@ -268,7 +268,8 @@ M.setup = function(kitty_data_str)
   end
   local config_fn = config_source.configs[config_name]
   local user_opts = config_fn and config_fn(p.kitty_data) or {}
-  opts = vim.tbl_deep_extend('force', default_opts, user_opts)
+  opts = vim.tbl_deep_extend('force', default_opts, config_source.configs)
+  opts = vim.tbl_deep_extend('force', opts, user_opts)
 
   ksb_backport.setup()
   ksb_health.setup(p, opts)

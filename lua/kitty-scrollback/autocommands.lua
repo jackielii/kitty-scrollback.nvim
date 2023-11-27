@@ -122,6 +122,14 @@ M.set_yank_post_autocmd = function()
         return
       end
 
+      -- my own yank logic
+      if yankevent.regname == '*' then
+        return
+      end
+      if yankevent.regname == 'a' then
+        return
+      end
+
       if yankevent.regname == '+' then
         if vim.fn.has('clipboard') > 0 then
           -- contents are copied to clipboard, return to kitty
