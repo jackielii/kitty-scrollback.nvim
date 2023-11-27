@@ -435,6 +435,7 @@ M.launch = function()
           end)
         end
         ksb_api.close_kitty_loading_window()
+        vim.api.nvim_exec_autocmds([[User]], { pattern = [[KsbReady]], modeline = false })
       end)
     end)
     if
