@@ -30,7 +30,7 @@ def get_kitty_shell_integration(kitty_opts, w):
 
 
 # based on kitty source window.py
-def pipe_data(w, target_window_id, ksb_dir, config):
+def pipe_data(w, target_window_id, config):
     kitty_opts = get_options()
     kitty_shell_integration = get_kitty_shell_integration(kitty_opts, w)
     return {
@@ -152,10 +152,10 @@ def handle_result(
         err_winid = boss.call_remote_control(err_win, set_logo_cmd)
         return
 
-    cwd = parse_cwd(args)
-    env = parse_env(args)
-    kitty_data_str = pipe_data(w, target_window_id, ksb_dir, config)
-    kitty_data = json.dumps(kitty_data_str)
+        cwd = parse_cwd(args)
+        env = parse_env(args)
+        kitty_data_str = pipe_data(w, target_window_id, config)
+        kitty_data = json.dumps(kitty_data_str)
 
     if w.title.startswith("kitty-scrollback.nvim"):
         print(
