@@ -117,6 +117,9 @@ M.set_yank_post_autocmd = function()
     group = vim.api.nvim_create_augroup('KittyScrollBackNvimTextYankPost', { clear = true }),
     pattern = '*',
     callback = function(e)
+      if true then -- I don't want the special window
+        return
+      end
       local yankevent = vim.v.event
       if yankevent.operator ~= 'y' then
         return

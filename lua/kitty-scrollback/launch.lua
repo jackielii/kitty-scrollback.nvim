@@ -402,6 +402,10 @@ M.launch = function()
         )
         vim.api.nvim_buf_delete(vim.fn.bufnr('#'), { force = true }) -- delete alt buffer after rename
 
+        vim.schedule(function()
+          vim.cmd.normal('zb')
+        end)
+
         if opts.restore_options then
           restore_orig_options()
         end
